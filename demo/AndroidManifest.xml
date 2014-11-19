@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.chukong.demo"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19"/>
+    
+    <uses-permission android:name="android.permission.BLUETOOTH" />      
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+	<uses-permission android:name="android.permission.READ_SETTINGS" />
+	
+	<uses-permission android:name="com.android.vending.BILLING" />
+	
+    <application android:label="@string/app_name">
+        <activity android:name="MainActivity"
+                  android:label="@string/app_name"
+                  android:configChanges="orientation|keyboard|screenSize|mcc|mnc">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <!-- CocosPlay Activities -->
+        <activity
+            android:name="com.chukong.cocosplay.GameActivity"
+            android:configChanges="orientation"
+            android:launchMode="singleTop"
+            android:process="com.chukong.demo.gameview"
+            android:label="@string/app_name"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.chukong.cocosplay.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.chukong.cocosplay.CocosProxyActivity"
+            android:configChanges="orientation"
+            android:process="com.chukong.demo.gameview"
+            android:label="@string/app_name"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.chukong.cocosplay.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.chukong.cocosplay.CocosProxyFragmentActivity"
+            android:configChanges="orientation"
+            android:process="com.chukong.demo.gameview"
+            android:label="@string/app_name"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.chukong.cocosplay.fragment.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.chukong.cocosplay.CocosProxyActivityGroup"
+            android:configChanges="orientation"
+            android:process="com.chukong.demo.gameview"
+            android:label="@string/app_name"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.chukong.cocosplay.activitygroup.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity 
+            android:name="com.chukong.cocosplay.host.CocosPlayHostActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:configChanges="keyboardHidden|navigation|orientation"
+            android:process="com.chukong.demo.gameview"/>
+        <activity 
+            android:name="com.chukong.cocosplay.host.CocosPlayHostActivityGroup"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:process="com.chukong.demo.gameview"/>
+        <activity 
+            android:name="com.chukong.cocosplay.host.CocosPlayHostListActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:process="com.chukong.demo.gameview"/>
+        <activity 
+            android:name="com.chukong.cocosplay.host.CocosPlayHostTabActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:process="com.chukong.demo.gameview"/>
+        <activity 
+            android:name="com.chukong.cocosplay.host.CocosPlayHosteActivityGroup"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:process="com.chukong.demo.gameview"/>
+        <service 
+            android:name="com.chukong.cocosplay.host.CocosPlayHostService"
+            android:process="com.chukong.demo.gameview"/>
+        <service 
+            android:name="com.chukong.cocosplay.host.CocosPlayHostRemoteService"            
+            android:process=":cocosplay_remote"/>
+        <provider android:name="com.chukong.cocosplay.host.CocosPlayHostProvider" 
+            android:authorities="com.chukong.demo.provider" 
+            android:process="com.chukong.demo.gameview"/>
+        <provider android:name="com.chukong.cocosplay.host.CocosPlayHostRemoteProvider" 
+            android:authorities="com.chukong.demo.provider_remote" 
+            android:process=":com.chukong.demo.cocosplay_remote"/>
+		<!-- End of CocosPlay Activities -->
+		
+    </application>
+</manifest> 
