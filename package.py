@@ -40,8 +40,8 @@ def main():
 
 	pubDir = '/publish'
 	binDir = '/publish/bin'
-	demoDir = '/Demo'
-	sdkDir = '/SDK'
+	demoDir = '/demo'
+	sdkDir = '/sdk'
 	archiveName = '/CocosPlay_SDK'
 
 	print('==> Clean up git repo')
