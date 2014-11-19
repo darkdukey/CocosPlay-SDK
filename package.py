@@ -42,7 +42,7 @@ def main():
 	binDir = '/publish/bin'
 	demoDir = '/Demo'
 	sdkDir = '/SDK'
-	archiveName = '/AnyStore_SDK'
+	archiveName = '/CocosPlay_SDK'
 
 	print('==> Clean up git repo')
 	from subprocess import call
